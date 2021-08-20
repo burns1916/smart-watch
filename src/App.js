@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import SmartWatch from './components/SmartWatch'
-import classes from "./SmartWatch.module.css"
+import SmartWatch from './components/SmartWatch';
+import classes from './SmartWatch.module.css';
+import Features from './components/Features';
 
 
 class App extends Component {
@@ -39,15 +40,19 @@ handleColorClick = (pos) => {
   alert("Color Selected at" + pos)
 }
 
+handleFeatureClick = (feature) => {
+  alert("feature Selected " + feature)
+}
+
 watches = this.ProductData.colorOptions.map((watch, pos) => {
   return(
-    <SmartWatch key={pos} url={watch.imageUrl} handleColorClick={this.handleColorClick}/>
+    <SmartWatch key={pos} url={watch.imageUrl} handleColorClick={() => {this.handleColorClick(pos)}}/>
   )
 })
 
 features = this.ProductData.featureList.map((feature) => {
   return(
-  <button className={classes.featureButton}>{feature}</button>
+  <Features features={feature} handleFeatureClick={() => {this.handleFeatureClick(feature)}}/>
   )
 })
 

@@ -1,11 +1,13 @@
-import React from 'react'
+import React, { Component } from 'react'
 import classes from '../SmartWatch.module.css';
 
-const SmartWatch = (props) => {
+class SmartWatch extends Component {
+    render() {
     return (
-        <div onClick={() => props.handleColorClick(props.key)}> 
-            <img src={props.url} alt="watch band" className={classes.SmartWatchThumbnail}/>
+        <div> 
+            <img src={this.props.url} alt="watch band" className={classes.SmartWatchThumbnail} onClick={this.props.handleColorClick}/>
         </div>
-    )
+        )
+    }
 }
 export default SmartWatch;
