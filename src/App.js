@@ -2,9 +2,11 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import SmartWatch from './components/SmartWatch'
+import classes from "./SmartWatch.module.css"
 
 
 class App extends Component {
+
  ProductData = {
     title: 'FitBit 19 - The Smartest Watch',
     description: 'Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor Lorem ipsum dolor.',
@@ -36,14 +38,42 @@ class App extends Component {
 
 watches = this.ProductData.colorOptions.map((watch, pos) => {
   return(
-    <SmartWatch key={pos} style={watch.styleName} url={watch.imgUrl} />
+    <SmartWatch key={pos} url={watch.imageUrl} />
+  )
+})
+
+features = this.ProductData.featureList.map((feature) => {
+  return(
+  <button className={classes.featureButton}>{feature}</button>
   )
 })
 
 render() {
   return (
-    <div className="App">
-      {this.watches}
+    <div className={classes.app}>
+      <div className={classes.watchPicture}>
+      
+      </div>
+      <div className={classes.watchInfo}>
+        <h2 className={classes.title}>
+          {this.ProductData.title}
+        </h2>
+        <p>
+          {this.ProductData.description}
+        </p>
+        <h4 className={classes.colorSelect}>
+          Select Color
+        </h4>
+        <div className={classes.watches}>
+          {this.watches}
+        </div>
+        <br/>
+        {this.features}
+        <br/>
+        <button className={classes.buyNow}>
+          Buy Now
+        </button>
+      </div>
     </div>
   );
   }
