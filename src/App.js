@@ -35,10 +35,13 @@ class App extends Component {
 
 // Object.freeze(ProductData); //This line of code just makes your object as a constant. No values can be updated.
 
+handleColorClick = (pos) => {
+  alert("Color Selected at" + pos)
+}
 
 watches = this.ProductData.colorOptions.map((watch, pos) => {
   return(
-    <SmartWatch key={pos} url={watch.imageUrl} />
+    <SmartWatch key={pos} url={watch.imageUrl} handleColorClick={this.handleColorClick}/>
   )
 })
 

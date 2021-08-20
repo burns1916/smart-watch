@@ -3,8 +3,7 @@ import classes from '../SmartWatch.module.css';
 
 const SmartWatch = (props) => {
     return (
-        <div> 
-            <h3>{props.style}</h3>
+        <div onClick={() => props.handleColorClick(props.key)}> 
             <img src={props.url} alt="watch band" className={classes.SmartWatchThumbnail}/>
         </div>
     )
