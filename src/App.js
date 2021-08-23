@@ -1,12 +1,16 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SmartWatch from './components/SmartWatch';
 import classes from './SmartWatch.module.css';
 import Features from './components/Features';
+import logo from './amazon-logo.png';
 
 
 class App extends Component {
+  state = {
+    watchBand: 'https://imgur.com/iOeUBV7.png',
+    featureSelect: '',
+  }
 
  ProductData = {
     title: 'FitBit 19 - The Smartest Watch',
@@ -37,11 +41,11 @@ class App extends Component {
 // Object.freeze(ProductData); //This line of code just makes your object as a constant. No values can be updated.
 
 handleColorClick = (pos) => {
-  alert("Color Selected at" + pos)
+  this.setState({watchBand: pos});
 }
 
 handleFeatureClick = (feature) => {
-  alert("feature Selected " + feature)
+  this.setState({featureSelect: feature})
 }
 
 watches = this.ProductData.colorOptions.map((watch, pos) => {
@@ -59,8 +63,10 @@ features = this.ProductData.featureList.map((feature) => {
 render() {
   return (
     <div className={classes.app}>
+      {/*<div className={classes.logo}><img src={logo} alt="amazon logo" /></div> */}
+      <div className={classes.productDetails}>
       <div className={classes.watchPicture}>
-      
+        <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color"/>
       </div>
       <div className={classes.watchInfo}>
         <h2 className={classes.title}>
@@ -81,6 +87,7 @@ render() {
         <button className={classes.buyNow}>
           Buy Now
         </button>
+      </div>
       </div>
     </div>
   );
