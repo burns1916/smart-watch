@@ -66,9 +66,8 @@ render() {
       <div className={classes.logo}><img src={logo} alt="amazon logo" className={classes.logoImg} /></div>
       <div className={classes.productDetails}>
       <div className={classes.watchPicture}>
-        <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color">
+        <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color"/>
         {this.state.featureSelect}
-        
       </div>
       <div className={classes.watchInfo}>
         <h2 className={classes.title}>
