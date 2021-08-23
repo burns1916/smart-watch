@@ -40,8 +40,8 @@ class App extends Component {
 
 // Object.freeze(ProductData); //This line of code just makes your object as a constant. No values can be updated.
 
-handleColorClick = (pos) => {
-  this.setState({watchBand: pos});
+handleColorClick = (url) => {
+  this.setState({watchBand: url});
 }
 
 handleFeatureClick = (feature) => {
@@ -50,7 +50,7 @@ handleFeatureClick = (feature) => {
 
 watches = this.ProductData.colorOptions.map((watch, pos) => {
   return(
-    <SmartWatch key={pos} url={watch.imageUrl} handleColorClick={() => {this.handleColorClick(pos)}}/>
+    <SmartWatch key={pos} url={watch.imageUrl} handleColorClick={() => {this.handleColorClick(watch.imageUrl)}}/>
   )
 })
 
@@ -63,10 +63,12 @@ features = this.ProductData.featureList.map((feature) => {
 render() {
   return (
     <div className={classes.app}>
-      {/*<div className={classes.logo}><img src={logo} alt="amazon logo" /></div> */}
+      <div className={classes.logo}><img src={logo} alt="amazon logo" className={classes.logoImg} /></div>
       <div className={classes.productDetails}>
       <div className={classes.watchPicture}>
-        <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color"/>
+        <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color">
+        {this.state.featureSelect}
+        
       </div>
       <div className={classes.watchInfo}>
         <h2 className={classes.title}>
@@ -82,6 +84,9 @@ render() {
           {this.watches}
         </div>
         <br/>
+        <h4 className={classes.colorSelect}>
+          Features
+        </h4>
         {this.features}
         <br/>
         <button className={classes.buyNow}>
