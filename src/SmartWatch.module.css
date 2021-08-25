@@ -26,10 +26,18 @@
     display: flex;
 }
 
-.watchPicture{
+.watchPicture > img {
     width: 100%;
-    height: 100%;
+}
 
+.featureSection {
+    position: absolute;
+    top: 50%;
+    left: 23.5%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2em;
+    font-weight: 600;
 }
 
 .watchInfo{

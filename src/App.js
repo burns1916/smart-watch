@@ -67,7 +67,7 @@ render() {
       <div className={classes.productDetails}>
       <div className={classes.watchPicture}>
         <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color"/>
-        {this.state.featureSelect}
+        <div className={classes.featureSection}>{this.state.featureSelect}</div>
       </div>
       <div className={classes.watchInfo}>
         <h2 className={classes.title}>
