@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import SmartWatch from './components/SmartWatch';
+import ProductFeature from './components/ProductFeature'
 import classes from './SmartWatch.module.css';
 import Features from './components/Features';
 import logo from './amazon-logo.png';
@@ -11,6 +12,7 @@ class App extends Component {
     watchBand: 'https://imgur.com/iOeUBV7.png',
     featureSelect: '',
   }
+
 
  ProductData = {
     title: 'FitBit 19 - The Smartest Watch',
@@ -67,7 +69,7 @@ render() {
       <div className={classes.productDetails}>
       <div className={classes.watchPicture}>
         <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color"/>
-        <div className={classes.featureSection}>{this.state.featureSelect}</div>
+        <ProductFeature />
       </div>
       <div className={classes.watchInfo}>
         <h2 className={classes.title}>
