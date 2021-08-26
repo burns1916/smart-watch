@@ -1,6 +1,6 @@
 import React from 'react';
-import classes from '../SamrtWatch.module.css';
-import heart from '../heartbeat.svg';
+import classes from '../SmartWatch.module.css';
+import heart from '../heartbeat.png';
 
 
 const ProductFeature = (props) => {
@@ -10,15 +10,21 @@ const ProductFeature = (props) => {
 
     return(
         <div className={classes.featureSection}>
-            <img src={heart} alt="heart" />
-            <div className={classes.timeSection}>
-                <p>{`${currentHour}:${currentMinute}`}</p>
-            </div>
-            <div>
+            <img src={props.currentPreviewImage} alt="Product Preview" />
+            {
+                props.showHearBeatSection ? 
+                <div>
                 <i className={classes.heartBeat}>
                     <p>80</p>
                 </i>
-            </div>
+                </div> 
+                
+                : 
+                
+                <div className={classes.timeSection}>
+                <p>{`${currentHour}:${currentMinute}`}</p>
+                </div>
+            }
         </div>
     )
 }
