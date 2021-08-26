@@ -29,18 +29,18 @@ const ProductDetails = (props) => {
 
     return(
         <div className={classes.ProductData}>
-        <h2 className={classes.title}>{props.data.title}</h2>
+        <h2 className={classes.ProductTitle}>{props.data.title}</h2>
         <p className={classes.ProductDescription}>
           {props.data.description}
         </p>
-        <h4 className={classes.colorSelect}>
+        <h4 className={classes.SectionHeading}>
           Select Color
         </h4>
-        <div className={classes.watches}>
+        <div>
           {colorOptions}
         </div>
         <br/>
-        <h4 className={classes.colorSelect}>
+        <h4 className={classes.SectionHeading}>
           Features
         </h4>
         <div>

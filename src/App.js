@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import SmartWatch from './components/SmartWatch';
 import ProductData from './components/ProductData';
 import ProductFeature from './components/ProductFeature'
 import ProductDetails from './components/ProductDetails'
@@ -16,16 +15,19 @@ class App extends Component {
     showHeartBeatSection: true,
   }
 
+  const onColorOptionClick = () => {
+
+  }
+
 render() {
   return (
     <div className={classes.app}>
       <Logo />
-      <div className={classes.productDetails}>
-      <div className={classes.watchPicture}>
-        <img src={this.state.watchBand} className={classes.watchBand} alt="watch band color"/>
+      <div className={classes.MainContainer}>
+      <div className={classes.ProductPreview}>
         <ProductFeature currentPreviewImage={this.state.currentPreviewImage} showHeartBeatSection={this.state.showHeartBeatSection} />
       </div>
-      <div className={classes.watchInfo}>
+      <div className={classes.ProductData}>
         <ProductDetails data={this.state.productData} />
       </div>
       </div>

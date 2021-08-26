@@ -5,8 +5,9 @@ import heart from '../heartbeat.png';
 
 const ProductFeature = (props) => {
 
-    const currentHour = new Date().getHours() > 9 ? new Date().getHours() : '0' + new Date().getHours();
-    const currentMinute = new Date().getMinutes() > 9 ? new Date.getMinutes() : '0' + new Date().getMinutes();
+    const currentDate = new Date()
+    const currentHour = currentDate.getHours();
+    const currentMinute = currentDate.getMinutes();
 
     return(
         <div className={classes.featureSection}>
