@@ -3,26 +3,27 @@ import classes from '../SmartWatch.module.css';
 import heart from '../heartbeat.png';
 
 
-const ProductFeature = (props) => {
+const ProductPreview = (props) => {
 
     const currentDate = new Date()
     const currentHour = currentDate.getHours();
     const currentMinute = currentDate.getMinutes();
 
     return(
-        <div className={classes.featureSection}>
+        <div className={classes.ProductPreview}>
             <img src={props.currentPreviewImage} alt="Product Preview" />
             {
-                props.showHearBeatSection ? 
-                <div>
-                <i className={classes.heartBeat}>
+                props.currentSelectedFeature === 1 ? 
+                <div className={classes.HeartBeatSection}>
+                <img src={heart} />
+                <i>
                     <p>80</p>
                 </i>
                 </div> 
                 
                 : 
                 
-                <div className={classes.timeSection}>
+                <div className={classes.TimeSection}>
                 <p>{`${currentHour}:${currentMinute}`}</p>
                 </div>
             }
@@ -30,4 +31,4 @@ const ProductFeature = (props) => {
     )
 }
 
-export default ProductFeature
+export default ProductPreview

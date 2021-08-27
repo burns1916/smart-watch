@@ -6,24 +6,24 @@ const ProductDetails = (props) => {
 
     const colorOptions = props.data.colorOptions.map((item, pos) => {
         const classArr = [classes.ProductImage]
-        if (pos === 0) {
+        if (pos === props.currentPreviewImagePos) {
             classArr.push(classes.SelectedProductImage);
         }
 
         return(
-            <img key={pos} className={classArr.join(' ')} src={item.imageUrl} alt={item.styleName} />
+            <img key={pos} className={classArr.join(' ')} src={item.imageUrl} alt={item.styleName} onClick={() => props.onColorOptionClick(pos)}/>
         );
     });
 
     const featureList = props.data.featureList.map((item, pos) => {
-        const classArr = [classes.featureItem]
+        const classArr = [classes.FeatureItem]
 
-        if (pos === 0) {
+        if (pos === props.currentSelectedFeature) {
             classArr.push(classes.SelectedFeatureItem)
-        }
+        } 
 
         return(
-            <button key={pos} className={[classArr].join(' ')}>{item}</button>
+            <button onClick={() => props.onFeatureItemClick(pos)} key={pos} className={classArr.join(' ')}>{item}</button>
         )
     })
 
@@ -46,8 +46,7 @@ const ProductDetails = (props) => {
         <div>
         {featureList}
         </div>
-        <br/>
-        <button className={classes.buyNow}>
+        <button className={classes.PrimaryButton}>
           Buy Now
         </button>
         </div>

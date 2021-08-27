@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import './App.css';
 import ProductData from './components/ProductData';
-import ProductFeature from './components/ProductFeature'
+import ProductPreview from './components/ProductPreview'
 import ProductDetails from './components/ProductDetails'
 import classes from './SmartWatch.module.css';
 import Logo from './components/Logo'
@@ -11,24 +10,30 @@ import Logo from './components/Logo'
 class App extends Component {
   state = {
     productData: ProductData,
-    currentPreviewImage: 'https://imgur.com/iOeUBV7.png',
-    showHeartBeatSection: true,
+    currentPreviewImagePos: 0,
+    currentSelectedFeature: 0,
   }
 
-  const onColorOptionClick = () => {
-
+  onColorOptionClick = (pos) => {
+    this.setState({currentPreviewImagePos: pos})
   }
+
+  onFeatureItemClick = (pos) => {
+    this.setState({currentSelectedFeature: pos})
+  }
+
+
 
 render() {
   return (
-    <div className={classes.app}>
+    <div className="App">
       <Logo />
       <div className={classes.MainContainer}>
       <div className={classes.ProductPreview}>
-        <ProductFeature currentPreviewImage={this.state.currentPreviewImage} showHeartBeatSection={this.state.showHeartBeatSection} />
+        <ProductPreview currentPreviewImage={this.state.productData.colorOptions[this.state.currentPreviewImagePos].imageUrl} currentSelectedFeature={this.state.currentSelectedFeature} />
       </div>
       <div className={classes.ProductData}>
-        <ProductDetails data={this.state.productData} />
+        <ProductDetails data={this.state.productData} onColorOptionClick={this.onColorOptionClick} currentPreviewImagePos={this.state.currentPreviewImagePos} onFeatureItemClick={this.onFeatureItemClick} currentSelectedFeature={this.state.currentSelectedFeature} />
       </div>
       </div>
     </div>
