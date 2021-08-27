@@ -14,11 +14,9 @@ const ProductPreview = (props) => {
             <img src={props.currentPreviewImage} alt="Product Preview" />
             {
                 props.currentSelectedFeature === 1 ? 
-                <div className={classes.HeartBeatSection}>
-                <img src={heart} />
-                <i>
+                <div className={classes.HeartBeatSection}>  
+                <i class="fas fa-heartbeat"></i>
                     <p>80</p>
-                </i>
                 </div> 
                 
                 : 
